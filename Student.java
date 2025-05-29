@@ -1,49 +1,76 @@
+//Question_01
+
+//1
 public class Student{
 	private int studentID;
 	private String name;
 	private int daysAttended;
 	
+	//2
+	//constructor for class Student
 	public Student(int studentID,String name,int daysAttended){
 		this.studentID = studentID;
 		this.name = name;
 		this.daysAttended = daysAttended;
 	}
-	public int getstudnetId(){
-		return studentId;
-		}
-	public String getName() {
+	
+	//3
+	//getters
+	public int getstudentId()
+	{
+		return studentID;
+	}
+	public String getName()
+	{
 		return name;
 	}
-	public int getDaysAttended(){
+	public int getDaysAttended()
+	{
 		return daysAttended;
 	}
-	public void setDaysAttended(int daysAttended){
+	//setters
+	public void setDaysAttended(int daysAttended)
+	{
 		this.daysAttended = daysAttended;
 	}
-	public void displayStudentDetails() {
-        System.out.println("ID: " + studentId + ", Name: " + name + ", Days Attended: " + daysAttended);
+	
+	public void displayStudentDetails()
+	{
+        System.out.println("ID: " + studentID + ", Name: " + name + ", Days Attended: " + daysAttended);
     }
 }
-class Classroom {
-    private Student[] students;
-    private int studentCount;
 
-    public Classroom() {
-        students = new Student[10];
-        studentCount = 0;
+
+//4
+class Classroom
+{
+    private Student[] students;
+    private int studentCount=0;
+
+    public Classroom()
+	{
+		students = new Student[10];
     }
 
-    public void addStudent(Student student) {
-        if (studentCount < students.length) {
+	//5
+    public void addStudent(Student student)
+	{
+        if (studentCount < students.length)
+		{
             students[studentCount++] = student;
-        } else {
+        }
+		else
+		{
             System.out.println("Classroom is full!");
         }
     }
 
-    public void updateAttendance(int studentId, int newDaysAttended) {
-        for (int i = 0; i < studentCount; i++) {
-            if (students[i].getStudentId() == studentId) {
+    public void updateAttendance(int studentId, int newDaysAttended)
+	{
+        for (int i = 0; i < studentCount; i++)
+		{
+            if (students[i].getstudentId() == studentId)
+			{
                 students[i].setDaysAttended(newDaysAttended);
                 return;
             }
@@ -51,13 +78,17 @@ class Classroom {
         System.out.println("Student ID " + studentId + " not found.");
     }
 
-    public void displayAllStudents() {
+    public void displayAllStudents()
+	{
         for (int i = 0; i < studentCount; i++) {
             students[i].displayStudentDetails();
         }
     }
+}
 
-class Question_01 {
+//6
+class Run
+{
     public static void main(String[] args) {
         Classroom classroom = new Classroom();
         
